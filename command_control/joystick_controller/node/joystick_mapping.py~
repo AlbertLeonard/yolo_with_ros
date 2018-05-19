@@ -1,0 +1,30 @@
+class joystick 
+
+# Left Stick 
+joystick.LS_H = 0 
+joystick.LS_V = 0 
+
+# Right Stick 
+joystick.RS_H = 0 
+joystick.RS_V = 0 
+
+# Direction Panel 
+joystick.DP_H = 0 
+joystick.DP_V = 0 
+
+# Buttons 
+joystick.X = 0 
+joystick.A = 0 
+joystick.B = 0 
+joystick.Y = 0 
+
+joystick.LB = 0 
+joystick.RB = 0 
+
+joystick.LT = 0 
+joystick.RT = 0 
+joystick.SELECT  = 0 
+joystick.START  = 0 
+
+joystick.L = 0 
+joystick.R = 0 

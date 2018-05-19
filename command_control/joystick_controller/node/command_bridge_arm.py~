@@ -1,0 +1,93 @@
+#!/usr/bin/env python
+
+import sys
+import copy
+import rospy
+import moveit_commander
+import moveit_msgs.msg
+
+from msg_gateway.msg import Command_msgs
+from sensor_msgs.msg import JointState
+from sensor_msgs.msg import Joy
+
+
+'''class Trajectory():
+	def __init__(self):
+		
+		arm_joints = ['joint_arm_a_1',
+					  'joint_arm_a_2',
+					  'joint_arm_a_3', 
+					  'joint_arm_b_1',
+					  'joint_arm_b_2',
+					  'joint_arm_b_3']
+		gripper_joints = ['joint_finger_a',
+						  'joint_finger_b']'''
+        	
+
+i = 0
+
+def callback0(msg):
+	
+	global COMMAND
+	
+	'''if i == 0:
+		
+		COMMAND.axes[0] = 0 
+		COMMAND.axes[1] = 0 
+		COMMAND.axes[2] = 0 
+		COMMAND.axes[3] = 0 
+		COMMAND.axes[4] = 0 
+		COMMAND.axes[5] = 0 
+		
+		COMMAND.X = 0
+		COMMAND.A = 0
+		COMMAND.B = 0
+		COMMAND.Y = 0
+		COMMAND.LB = 0
+		COMMAND.RB = 0
+		COMMAND.LT = 0
+		COMMAND.RT = 0
+		COMMAND.SELECT  = 0
+		COMMAND.START  = 0
+		COMMAND.L = 0
+		COMMAND.R = 0
+		
+		i = 1'''
+	
+	COMMAND = msg
+	
+def callback1(msg):
+	
+	global OUT, JOINT_STATE
+	
+	JOINT_STATE = msg
+	
+	
+	#print JOINT_STATE.position
+	#print COMMAND.axes
+	
+	x = JOINT_STATE.position[0] + 0.1*COMMAND.axes[0]
+	y = JOINT_STATE.position[1] + 0.1*COMMAND.axes[1]
+	
+	print "%f"%x
+	print "%f"%y
+	
+	OUT.position = (x, y, 0, 0, 0, 0, 0, 0 )
+	#OUT.position[1] = y
+	
+	pub.publish(OUT)
+
+#Main
+rospy.init_node('command_control')
+
+COMMAND = Joy()
+JOINT_STATE = JointState()
+OUT = JointState()
+
+sub0 = rospy.Subscriber('/joy', Joy, callback0 )
+#sub0 = rospy.Subscriber('command_control/raw', Command_msgs, callback0 )
+sub1 = rospy.Subscriber('joint_states', JointState, callback1 )
+pub = rospy.Publisher('joint_states', JointState, queue_size=10 )
+
+rospy.spin()
+

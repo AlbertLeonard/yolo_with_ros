@@ -1,0 +1,5 @@
+<launch>
+	
+	<node name="test_bot" pkg="test_bot" type="test_bot.py" output="screen" />
+	
+</launch>

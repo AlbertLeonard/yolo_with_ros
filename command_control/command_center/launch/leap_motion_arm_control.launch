@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find leap_motion)/launch/sensor_sender.launch" />
+  
+  <node name="leap_motion_arm_control_node" pkg="command_center" type="command_bridge_arm_leap.py" output="screen" />
+  
+</launch>

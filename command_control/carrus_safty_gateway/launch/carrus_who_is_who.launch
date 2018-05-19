@@ -1,0 +1,8 @@
+<launch>
+
+<node pkg="carrus_safty_gateway" type="carrus_safty_gateway.py" name="carrus_safty_gateway">
+  <remap from="/cmd_vel_mux" to="/cmd_vel" />
+</node>
+
+</launch>
+

@@ -1,0 +1,11 @@
+<launch>
+  <group ns="leap_motion">
+    <node pkg="leap_motion" type="leap_camera" name="leap_camera" output="screen"/>
+    <node pkg="leap_motion" type="leap_hands" name="leap_hands" output="screen"/>
+  </group>
+  
+  <group ns="leap_motion">
+    <node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" output="screen"/>
+  </group>
+  
+</launch>
