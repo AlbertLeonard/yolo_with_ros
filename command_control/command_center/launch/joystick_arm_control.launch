@@ -1,0 +1,6 @@
+<launch>
+  
+  <node name="joystick_arm_control_srv" pkg="command_center" type="command_bridge_arm_srv.py" output="screen" />
+  <node name="joystick_arm_control_node" pkg="command_center" type="command_bridge_arm_joy.py" output="screen" />
+  
+</launch>

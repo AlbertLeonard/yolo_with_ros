@@ -1,0 +1,11 @@
+<launch>
+	<include file="$(find joystick_controller)/launch/joystick_controller_btp.launch" />
+	
+	<node name="command_bridge_base_joy" pkg="command_center" type="command_bridge_base_joy.py">
+	   < remap from="cmd_vel_mux" to="cmd_vel"  />
+	</node>
+
+	<node name="carrus_safty_gateway" pkg="carrus_safty_gateway" type="carrus_safty_gateway.py">
+	</node>
+
+</launch>

@@ -1,0 +1,31 @@
+   # ***操作1*** #
+1、启动 Kinect：
+roslaunch freenect_launch freenect.launch
+
+2、启动 rbx1_vision下的tennis_detector:
+roslaunch rbx1_vision tennis_detector.launch
+
+3、启动 rbx1_app下的object_follower：
+roslaunch rbx1_apps object_follower.launch
+
+4、启动 ros_ard_py下的arduino_Node：
+ros_arduino_python arduino2.launch
+
+
+#-----------------------------------------------
+
+   # ***操作1*** #
+1、启动 Kinect：
+ roslaunch freenect_launch freenect-registered-xyzrgb.launch 
+
+2、启动 beginner下的darknet_kinect:
+ rosrun beginner_tutorials darknet_kinect_ros.py
+
+3、启动 rbx1_app下的object_follower：
+ roslaunch rbx1_apps object_follower.launch
+
+4、启动 ros_ard_py下的arduino_Node：
+ ros_arduino_python arduino2.launch
+
+
+

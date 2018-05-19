@@ -1,0 +1,4 @@
+<launch>
+	<node name="joystick_controller" pkg="joystick_controller" type="object_recognition.py" output="screen" />
+	<node name="central_command" pkg="joystick_controller" type="central_command.py" output="screen" />
+</launch>

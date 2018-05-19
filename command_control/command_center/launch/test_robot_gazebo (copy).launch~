@@ -1,0 +1,8 @@
+<launch>
+	
+	<node name="test_bot" pkg="test_bot" type="test_bot.py" output="screen" />
+		
+		<remap from="cmd_vel" to="/cmd_vel_mux/input/teleop" />
+		
+	
+</launch>
